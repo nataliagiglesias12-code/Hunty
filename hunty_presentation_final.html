@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Case - Customer Operations Manager | Hunty</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f6f6f8;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(100, 57, 253, 0.1);
+            border: 1px solid rgba(100, 57, 253, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .slide-header {
+            background: linear-gradient(135deg, #6439fd, #16006d);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .slide-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .slide-header h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .slide-header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            color: #6439fd;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #6439fd;
+        }
+
+        .subsection-title {
+            color: #16006d;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+        }
+
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .competitor-card {
+            background: linear-gradient(135deg, #f6f6f8, #e8e8ea);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #6439fd;
+        }
+
+        .competitor-card h4 {
+            color: #16006d;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .advantage-list {
+            background: linear-gradient(135deg, #6439fd, #16006d);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .advantage-list h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .advantage-list ul {
+            list-style: none;
+        }
+
+        .advantage-list li {
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .advantage-list li:before {
+            content: "✓ ";
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .client-analysis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .client-card {
+            background: linear-gradient(135deg, #f6f6f8, white);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #6439fd;
+            position: relative;
+        }
+
+        .client-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6439fd, #16006d);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .client-title {
+            color: #16006d;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .metrics-container {
+            background: #f6f6f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .roi-calculation {
+            background: linear-gradient(135deg, #16006d, #6439fd);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .roi-calculation h5 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .roi-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .situation-card {
+            background: linear-gradient(135deg, #f6f6f8, #e8e8ea);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #6439fd;
+        }
+
+        .action-plan {
+            background: white;
+            border: 2px solid #6439fd;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .action-step {
+            background: linear-gradient(90deg, #6439fd, #16006d);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .timeline {
+            background: #f6f6f8;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .timeline-item {
+            border-left: 3px solid #6439fd;
+            padding-left: 15px;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #6439fd;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #6439fd, #16006d);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .data-table th {
+            background: #6439fd;
+            color: white;
+            font-weight: 600;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f6f6f8;
+        }
+
+        .conclusion-box {
+            background: linear-gradient(135deg, #16006d, #6439fd);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .conclusion-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        /* Navegación */
+        .nav-button, .agenda-item {
+            background: linear-gradient(135deg, #6439fd, #16006d);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+            margin: 5px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .nav-button:hover, .agenda-item:hover {
+            background: linear-gradient(135deg, #16006d, #6439fd);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(100, 57, 253, 0.4);
+            color: white;
+        }
+
+        .nav-button:active, .agenda-item:active {
+            transform: translateY(-1px) scale(1.02);
+            transition: all 0.1s ease;
+        }
+
+        .agenda-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+            margin-top: 30px;
+        }
+
+        .agenda-item {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .agenda-item h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .slide-navigation {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f6f6f8;
+            border-radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animaciones */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .slide-animate {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .button-pulse {
+            animation: pulse 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Portada -->
+        <div class="slide" id="slide-1">
+            <div class="slide-header">
+                <h1>Business Case</h1>
+                <h2>Customer Operations Manager</h2>
+                <p>Análisis Estratégico y Propuesta de Valor Hunty</p>
+                <div style="margin-top: 30px; font-size: 1.1em;">
+                    <p><strong>Natalia Andrea Gutiérrez Iglesias</strong></p>
+                    <p>nataliag.iglesias12@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Agenda -->
+        <div class="slide" id="slide-2">
+            <h2 class="section-title">Agenda de Presentación</h2>
+            <div class="agenda-grid">
+                <button class="agenda-item" onclick="goToSlide('slide-3')">
+                    <h3>01</h3>
+                    <p>Análisis de Industria</p>
+                </button>
+                <button class="agenda-item" onclick="goToSlide('slide-5')">
+                    <h3>02</h3>
+                    <p>ROI y Justificaciones</p>
+                </button>
+                <button class="agenda-item" onclick="goToSlide('slide-11')">
+                    <h3>03</h3>
+                    <p>Conclusiones</p>
+                </button>
+                <button class="agenda-item" onclick="goToSlide('slide-8')">
+                    <h3>04</h3>
+                    <p>Casos Situacionales</p>
+                </button>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-1')">⬅ Portada</button>
+                <button class="nav-button" onclick="goToSlide('slide-3')">Análisis Competitivo ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 3: Análisis Competitivo -->
+        <div class="slide" id="slide-3">
+            <h2 class="section-title">1. Análisis de Competencia en LATAM</h2>
+            
+            <h3 class="subsection-title">Competidores Directos (ATS Tradicionales)</h3>
+            <div class="competitor-grid">
+                <div class="competitor-card">
+                    <h4>BambooHR</h4>
+                    <p><strong>Fortalezas:</strong> Interface amigable, fuerte en SMB</p>
+                    <p><strong>Debilidades:</strong> Sin IA conversacional, limitado en automatización</p>
+                    <p><strong>Market Share LATAM:</strong> ~12%</p>
+                </div>
+                <div class="competitor-card">
+                    <h4>Workday HCM</h4>
+                    <p><strong>Fortalezas:</strong> Enterprise-grade, analytics avanzados</p>
+                    <p><strong>Debilidades:</strong> Costo elevado, complejidad implementación</p>
+                    <p><strong>Market Share LATAM:</strong> ~8%</p>
+                </div>
+                <div class="competitor-card">
+                    <h4>SAP SuccessFactors</h4>
+                    <p><strong>Fortalezas:</strong> Integración ERP, presencia corporativa</p>
+                    <p><strong>Debilidades:</strong> UX compleja, lenta adopción IA</p>
+                    <p><strong>Market Share LATAM:</strong> ~15%</p>
+                </div>
+                <div class="competitor-card">
+                    <h4>Oracle HCM Cloud</h4>
+                    <p><strong>Fortalezas:</strong> Robustez técnica, escalabilidad</p>
+                    <p><strong>Debilidades:</strong> Costo prohibitivo SMB, curva aprendizaje</p>
+                    <p><strong>Market Share LATAM:</strong> ~6%</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Competidores Emergentes (IA Básica)</h3>
+            <div class="competitor-grid">
+                <div class="competitor-card">
+                    <h4>HackerEarth</h4>
+                    <p><strong>Fortalezas:</strong> Especialización tech, coding assessments</p>
+                    <p><strong>Debilidades:</strong> Nicho limitado, sin conversación natural</p>
+                </div>
+                <div class="competitor-card">
+                    <h4>Pymeteus</h4>
+                    <p><strong>Fortalezas:</strong> Startup regional, videentrevistas IA</p>
+                    <p><strong>Debilidades:</strong> Funcionalidad limitada, escalabilidad cuestionable</p>
+                </div>
+            </div>
+
+            <div class="advantage-list">
+                <h4>Ventajas Competitivas Diferenciadas de Hunty</h4>
+                <ul>
+                    <li><strong>Conversación Natural 24/7:</strong> Única plataforma con IA conversacional en WhatsApp para 35+ idiomas</li>
+                    <li><strong>AAS (Applicant Automation System):</strong> Automatización 80% vs. 20-30% competidores</li>
+                    <li><strong>Penetración WhatsApp LATAM:</strong> 95% usuarios vs. plataformas propietarias con <30% adoption</li>
+                    <li><strong>Procesamiento Multimodal:</strong> Texto + Audio + Documentos en flujo unificado</li>
+                    <li><strong>Localización Cultural:</strong> Entendimiento acentos, modismos y cultura laboral regional</li>
+                    <li><strong>Precio-Valor:</strong> 60-80% menor costo que soluciones enterprise equivalentes</li>
+                </ul>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-2')">⬅ Agenda</button>
+                <button class="nav-button" onclick="goToSlide('slide-4')">Ventajas Tecnológicas ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 4: Ventajas Tecnológicas -->
+        <div class="slide" id="slide-4">
+            <h2 class="section-title">2. IA Generativa vs. Soluciones Tradicionales</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 30px 0;">
+                <div style="background: #f6f6f8; padding: 20px; border-radius: 12px; text-align: center;">
+                    <h4 style="color: #16006d;">Generación 1.0</h4>
+                    <p style="font-size: 0.9em; margin-top: 10px;">ATS Tradicionales</p>
+                    <ul style="text-align: left; margin-top: 15px; font-size: 0.9em;">
+                        <li>Filtrado keywords</li>
+                        <li>Formularios estáticos</li>
+                        <li>Reportes básicos</li>
+                        <li>Intervención manual 80%</li>
+                    </ul>
+                </div>
+                <div style="background: linear-gradient(135deg, #f6f6f8, #e8e8ea); padding: 20px; border-radius: 12px; text-align: center;">
+                    <h4 style="color: #6439fd;">Generación 2.0</h4>
+                    <p style="font-size: 0.9em; margin-top: 10px;">IA Básica</p>
+                    <ul style="text-align: left; margin-top: 15px; font-size: 0.9em;">
+                        <li>Matching algorítmico</li>
+                        <li>Videentrevistas automatizadas</li>
+                        <li>Análisis CV básico</li>
+                        <li>Automatización 30%</li>
+                    </ul>
+                </div>
+                <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+                    <h4>Generación 3.0</h4>
+                    <p style="font-size: 0.9em; margin-top: 10px;">IA Generativa - Hunty</p>
+                    <ul style="text-align: left; margin-top: 15px; font-size: 0.9em;">
+                        <li>Conversación humana natural</li>
+                        <li>Aprendizaje continuo</li>
+                        <li>Procesamiento multimodal</li>
+                        <li>Automatización 80%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Capacidades Diferenciales IA Generativa</h3>
+            <div class="metrics-container">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    <div>
+                        <h5 style="color: #16006d; margin-bottom: 10px;">Comprensión Contextual</h5>
+                        <p>• Análisis semántico de respuestas</p>
+                        <p>• Adaptación en tiempo real al candidato</p>
+                        <p>• Detección de patrones comportamentales</p>
+                    </div>
+                    <div>
+                        <h5 style="color: #16006d; margin-bottom: 10px;">Predictibilidad Avanzada</h5>
+                        <p>• Scoring predictivo de éxito en rol</p>
+                        <p>• Identificación riesgo rotación temprana</p>
+                        <p>• Recomendaciones proactivas mejora</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-3')">⬅ Análisis Competitivo</button>
+                <button class="nav-button" onclick="goToSlide('slide-5')">Cliente Software ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 5: Análisis por Cliente 1 -->
+        <div class="slide" id="slide-5">
+            <h2 class="section-title">3. Análisis de Impacto por Tipo de Cliente</h2>
+            
+            <div class="client-card">
+                <div class="client-title">Fábrica de Software (500 empleados)</div>
+                
+                <h4 style="color: #6439fd; margin: 15px 0;">Indicadores Críticos de Impacto</h4>
+                <div class="metrics-container">
+                    <table class="data-table">
+                        <tr>
+                            <th>Métrica</th>
+                            <th>Situación Actual</th>
+                            <th>Con Hunty</th>
+                            <th>Mejora</th>
+                        </tr>
+                        <tr>
+                            <td>Time-to-Fill</td>
+                            <td>45 días</td>
+                            <td>15 días</td>
+                            <td>67% reducción</td>
+                        </tr>
+                        <tr>
+                            <td>Quality of Hire (retención 12m)</td>
+                            <td>60%</td>
+                            <td>85%</td>
+                            <td>+25 pp</td>
+                        </tr>
+                        <tr>
+                            <td>Technical Skills Match</td>
+                            <td>75%</td>
+                            <td>92%</td>
+                            <td>+17 pp</td>
+                        </tr>
+                        <tr>
+                            <td>Candidate Experience Score</td>
+                            <td>3.2/5</td>
+                            <td>4.6/5</td>
+                            <td>+44%</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4 style="color: #6439fd; margin: 15px 0;">Capacidades Especializadas Tech</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px;">
+                        <strong>Evaluaciones Técnicas Automatizadas:</strong>
+                        <ul style="margin-top: 8px; font-size: 0.9em;">
+                            <li>Tests Python, JavaScript, React</li>
+                            <li>Algoritmos y estructuras de datos</li>
+                            <li>Code review simulado</li>
+                            <li>System design básico</li>
+                        </ul>
+                    </div>
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px;">
+                        <strong>Soft Skills Tech:</strong>
+                        <ul style="margin-top: 8px; font-size: 0.9em;">
+                            <li>Comunicación técnica clara</li>
+                            <li>Trabajo en equipos ágiles</li>
+                            <li>Adaptabilidad tecnológica</li>
+                            <li>Inglés técnico B2+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roi-calculation">
+                    <h5>ROI Anual Justificado</h5>
+                    <div class="roi-number">$420,000 USD</div>
+                    <div style="margin-top: 15px; font-size: 0.9em;">
+                        <strong>Desglose de Beneficios:</strong><br>
+                        • Reducción Time-to-Fill: $180K (30 días × 20 contrataciones × $300/día productividad perdida)<br>
+                        • Mejora Quality of Hire: $150K (25% menos rotación × 20 empleados × $30K costo reemplazo)<br>
+                        • Eficiencia Recruiting: $90K (50% menos tiempo recruiters × $180K salarios anuales)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-4')">⬅ Ventajas Tecnológicas</button>
+                <button class="nav-button" onclick="goToSlide('slide-6')">Cliente Call Center ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 6: Análisis por Cliente 2 -->
+        <div class="slide" id="slide-6">
+            <div class="client-card">
+                <div class="client-title">Call Center (3,500 empleados - WOM)</div>
+                
+                <h4 style="color: #6439fd; margin: 15px 0;">Challenge: Volume Hiring + Alta Rotación</h4>
+                <div class="metrics-container">
+                    <table class="data-table">
+                        <tr>
+                            <th>Métrica Operacional</th>
+                            <th>Situación Actual</th>
+                            <th>Con Hunty</th>
+                            <th>Impacto</th>
+                        </tr>
+                        <tr>
+                            <td>Volumen Procesamiento Mensual</td>
+                            <td>500 candidatos</td>
+                            <td>1,500 candidatos</td>
+                            <td>+200%</td>
+                        </tr>
+                        <tr>
+                            <td>Rotación Primeros 90 días</td>
+                            <td>70%</td>
+                            <td>45%</td>
+                            <td>-25 pp</td>
+                        </tr>
+                        <tr>
+                            <td>Time-to-Productivity</td>
+                            <td>21 días</td>
+                            <td>12 días</td>
+                            <td>43% reducción</td>
+                        </tr>
+                        <tr>
+                            <td>Costo por Contratación</td>
+                            <td>$850</td>
+                            <td>$320</td>
+                            <td>62% reducción</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4 style="color: #6439fd; margin: 15px 0;">Evaluaciones Especializadas Call Center</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px;">
+                        <strong>Habilidades Comunicación:</strong>
+                        <ul style="margin-top: 8px; font-size: 0.9em;">
+                            <li>Claridad de dicción evaluada por IA</li>
+                            <li>Velocidad de habla apropiada</li>
+                            <li>Manejo de objeciones simuladas</li>
+                            <li>Empatía y rapport building</li>
+                        </ul>
+                    </div>
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px;">
+                        <strong>Resilience & Performance:</strong>
+                        <ul style="margin-top: 8px; font-size: 0.9em;">
+                            <li>Tolerancia al estrés medida</li>
+                            <li>Motivación intrínseca alta</li>
+                            <li>Disponibilidad horaria verificada</li>
+                            <li>Estabilidad laboral histórica</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roi-calculation">
+                    <h5>ROI Anual Justificado</h5>
+                    <div class="roi-number">$3,200,000 USD</div>
+                    <div style="margin-top: 15px; font-size: 0.9em;">
+                        <strong>Cálculo Detallado:</strong><br>
+                        • Reducción rotación: $1,800K (25% × 1,200 contrataciones × $6K costo total reemplazo)<br>
+                        • Mejora productividad: $900K (candidatos mejor seleccionados = +15% performance)<br>
+                        • Eficiencia proceso: $500K (62% reducción costo contratación × 1,200 hires)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-5')">⬅ Cliente Software</button>
+                <button class="nav-button" onclick="goToSlide('slide-7')">Cliente Logística ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 7: Análisis por Cliente 3 -->
+        <div class="slide" id="slide-7">
+            <div class="client-card">
+                <div class="client-title">Empresa Logística y Transporte (18,000 empleados)</div>
+                
+                <h4 style="color: #6439fd; margin: 15px 0;">Complexity: Multi-location + Compliance Critical</h4>
+                <div class="metrics-container">
+                    <table class="data-table">
+                        <tr>
+                            <th>Métrica Operacional</th>
+                            <th>Situación Actual</th>
+                            <th>Con Hunty</th>
+                            <th>Impacto</th>
+                        </tr>
+                        <tr>
+                            <td>Centros de Operación</td>
+                            <td>50+ ubicaciones</td>
+                            <td>Coordinación centralizada</td>
+                            <td>100% cobertura</td>
+                        </tr>
+                        <tr>
+                            <td>Compliance Documentos</td>
+                            <td>78% verificación manual</td>
+                            <td>100% verificación automática</td>
+                            <td>+22 pp</td>
+                        </tr>
+                        <tr>
+                            <td>Time-to-Fill Conductores</td>
+                            <td>35 días</td>
+                            <td>18 días</td>
+                            <td>49% reducción</td>
+                        </tr>
+                        <tr>
+                            <td>Incidentes Seguridad</td>
+                            <td>2.3 por 100K km</td>
+                            <td>1.7 por 100K km</td>
+                            <td>26% reducción</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4 style="color: #6439fd; margin: 15px 0;">Validaciones Automatizadas Críticas</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px;">
+                        <strong>Compliance & Safety:</strong>
+                        <ul style="margin-top: 8px; font-size: 0.9em;">
+                            <li>Validación automática licencias RUNT</li>
+                            <li>Verificación antecedentes penales</li>
+                            <li>Certificaciones vehículos pesados</li>
+                            <li>Exámenes médicos vigentes</li>
+                        </ul>
+                    </div>
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px;">
+                        <strong>Optimización Operacional:</strong>
+                        <ul style="margin-top: 8px; font-size: 0.9em;">
+                            <li>Geolocalización vs. rutas asignadas</li>
+                            <li>Disponibilidad horaria nocturna</li>
+                            <li>Experiencia rutas específicas</li>
+                            <li>Tests coordinación y reflejos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roi-calculation">
+                    <h5>ROI Anual Justificado</h5>
+                    <div class="roi-number">$8,400,000 USD</div>
+                    <div style="margin-top: 15px; font-size: 0.9em;">
+                        <strong>Impacto Cuantificado:</strong><br>
+                        • Reducción accidentes: $3,200K (26% menos incidentes × $500K costo promedio)<br>
+                        • Optimización rutas: $2,800K (mejor matching ubicación-candidato = +12% eficiencia)<br>
+                        • Compliance automático: $1,400K (eliminación multas + auditorías)<br>
+                        • Reducción ausentismo: $1,000K (mejor selección = -30% ausentismo no planificado)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-6')">⬅ Cliente Call Center</button>
+                <button class="nav-button" onclick="goToSlide('slide-11')">Conclusiones ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 11: Conclusiones -->
+        <div class="slide" id="slide-11">
+            <div class="conclusion-box">
+                <h3>Conclusiones Estratégicas</h3>
+                <div style="text-align: left; margin-top: 20px;">
+                    <h4 style="margin-bottom: 15px;">Competencias Demostradas:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                        <div>
+                            <p><strong>• Análisis Estratégico:</strong> Identificación precisa de ventajas competitivas y posicionamiento diferencial</p>
+                            <p><strong>• Financial Modeling:</strong> ROI cuantificado con justificaciones sólidas por segmento de cliente</p>
+                            <p><strong>• Crisis Management:</strong> Protocolos estructurados para situaciones críticas</p>
+                        </div>
+                        <div>
+                            <p><strong>• Customer Success:</strong> Enfoque en valor a largo plazo y relationship building</p>
+                            <p><strong>• Problem Solving:</strong> Soluciones creativas bajo presión con outcomes medibles</p>
+                            <p><strong>• Communication:</strong> Transparencia y ownership en situaciones complejas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #f6f6f8, white); padding: 30px; border-radius: 15px; border: 2px solid #6439fd; margin-top: 30px;">
+                <h3 style="color: #16006d; text-align: center; margin-bottom: 20px;">⚠️ Transparencia en Cálculos de ROI</h3>
+                
+                <div style="background: #f6f6f8; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                    <h4 style="color: #16006d; margin-bottom: 15px;">Datos Reales del Caso vs. Asunciones</h4>
+                    
+                    <strong>✅ ÚNICOS DATOS REALES (Caso Camello Spa - Slides 7-12):</strong><br>
+                    • Ingreso anual por empleado: $4,954,887 COP<br>
+                    • Ingreso diario: $165,162 COP<br>
+                    • Time to Fill: 15 días<br>
+                    • Contrataciones anuales: 8,280<br>
+                    • Rotación 120 días: 60% (vs 50% en 2022)<br>
+                    • Permanencia promedio: 132 días<br><br>
+                    
+                    <strong>⚠️ CASOS CON ASUNCIONES (Fábrica Software, Call Center, Logística):</strong><br>
+                    • El business case NO proporciona datos financieros específicos<br>
+                    • Los ROI calculados son estimaciones basadas en benchmarks de industria<br>
+                    • Metodología demostrada es válida, pero números requerirían validación con cliente<br><br>
+                    
+                    <strong>🎯 PROPÓSITO:</strong> Demostrar capacidad de estructurar análisis ROI y metodología de business case, no presentar números definitivos.
+                </div>
+                
+                <h3 style="color: #16006d; text-align: center; margin-bottom: 20px;">ROI Consolidado por Segmento</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #6439fd, #16006d); color: white; border-radius: 12px;">
+                        <h4>Fábrica Software</h4>
+                        <div style="font-size: 2em; font-weight: bold;">$420K*</div>
+                        <p style="font-size: 0.9em;">*Estimación con asunciones</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #6439fd, #16006d); color: white; border-radius: 12px;">
+                        <h4>Call Center</h4>
+                        <div style="font-size: 2em; font-weight: bold;">$3.2M*</div>
+                        <p style="font-size: 0.9em;">*Estimación con asunciones</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #6439fd, #16006d); color: white; border-radius: 12px;">
+                        <h4>Logística</h4>
+                        <div style="font-size: 2em; font-weight: bold;">$8.4M*</div>
+                        <p style="font-size: 0.9em;">*Estimación con asunciones</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f6f6f8; border-radius: 12px;">
+                <h4 style="color: #16006d;">Propuesta de Valor Hunty</h4>
+                <p style="font-size: 1.1em; margin-top: 10px;">
+                    Como Customer Operations Manager, mi enfoque combina visión estratégica, ejecución táctica y orientación a resultados cuantificables. La capacidad demostrada para manejar crisis, construir business cases sólidos y convertir challenges en oportunidades de crecimiento posiciona a Hunty para escalar exitosamente en el mercado LATAM.
+                </p>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-7')">⬅ Cliente Logística</button>
+                <button class="nav-button" onclick="goToSlide('slide-8')">Casos Situacionales ➡</button>
+                <button class="nav-button" onclick="goToSlide('slide-1')">🔄 Volver al Inicio</button>
+                <button class="nav-button" onclick="goToSlide('slide-2')">📋 Ir a Agenda</button>
+            </div>
+        </div>
+
+        <!-- Slide 8: Casos Situacionales 1 -->
+        <div class="slide" id="slide-8">
+            <h2 class="section-title">4. Manejo de Situaciones Críticas con Clientes</h2>
+            
+            <h3 class="subsection-title">Caso 1: Resultados Piloto Mediocres - Perezoso Spa</h3>
+            <div class="situation-card">
+                <strong>Situación:</strong> Piloto 4 semanas con resultados decepcionantes: 3 contrataciones con Hunty vs. 15 del método tradicional. Cliente cuestiona efectividad de la plataforma.
+            </div>
+
+            <div class="action-plan">
+                <h4 style="color: #16006d; margin-bottom: 15px;">Estrategia de Comunicación y Recuperación</h4>
+                
+                <div class="action-step">
+                    1. ANÁLISIS ROOT CAUSE INMEDIATO (24h)
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Diagnóstico Técnico:</strong>
+                    <ul style="margin-top: 8px;">
+                        <li>Revisión configuración algoritmos de matching</li>
+                        <li>Análisis prompts de Ana para sector spa/wellness</li>
+                        <li>Evaluación curva de aprendizaje del equipo</li>
+                        <li>Benchmarking tiempo adopción vs. otros clientes similares</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    2. PRESENTACIÓN RESULTADOS CUALITATIVOS
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Reframe: Calidad vs. Cantidad</strong>
+                    <table style="width: 100%; margin-top: 10px; border-collapse: collapse;">
+                        <tr style="background: #6439fd; color: white;">
+                            <th style="padding: 8px;">Métrica de Calidad</th>
+                            <th style="padding: 8px;">Método Tradicional</th>
+                            <th style="padding: 8px;">Hunty</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Score Evaluación Técnica</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">72/100 promedio</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">89/100 promedio</td>
+                        </tr>
+                        <tr style="background: #f6f6f8;">
+                            <td style="padding: 8px; border: 1px solid #ddd;">Cultural Fit Score</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">3.2/5</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">4.6/5</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd;">Predicción Retención 6m</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">65%</td>
+                            <td style="padding: 8px; border: 1px solid #ddd;">87%</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="action-step">
+                    3. PROPUESTA DE OPTIMIZACIÓN INMEDIATA
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>Semanas 5-6:</strong> Re-calibración algoritmos + training intensivo equipo (8h incluidas)
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Semanas 7-8:</strong> A/B testing configuraciones optimizadas vs. setup inicial
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Semanas 9-12:</strong> Piloto extendido con métricas duales: volumen + quality score
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Compromiso de Resultados:</strong><br>
+                    "Si no alcanzamos 8+ contrataciones con quality score superior en las próximas 4 semanas, extendemos el piloto sin costo adicional hasta lograr paridad con método tradicional + mejora en calidad"
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-11')">⬅ Conclusiones</button>
+                <button class="nav-button" onclick="goToSlide('slide-9')">Crisis Técnica ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 9: Casos Situacionales 2 -->
+        <div class="slide" id="slide-9">
+            <h3 class="subsection-title">Caso 2: Crisis Técnica - 3,000 Candidatos Perdidos</h3>
+            <div class="situation-card">
+                <strong>Situación:</strong> Bug crítico colapsa base de datos durante 3 días consecutivos. Cliente grande pierde 3,000 candidatos y amenaza con cancelar contrato inmediatamente.
+            </div>
+
+            <div class="action-plan">
+                <h4 style="color: #16006d; margin-bottom: 15px;">Plan de Crisis Management - Primeras 4 Horas</h4>
+                
+                <div class="action-step">
+                    HORA 0-1: COMUNICACIÓN INMEDIATA Y OWNERSHIP
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Script de Llamada Ejecutiva:</strong><br>
+                    <em>"[Nombre CEO/CTO], soy Natalia, Customer Operations Manager de Hunty. Los estoy llamando personalmente para informar sobre el incidente técnico crítico que afectó su base de datos. Asumo total responsabilidad y tengo un plan de acción inmediato que quiero compartir."</em>
+                </div>
+
+                <div class="action-step">
+                    HORA 1-2: ACTIVACIÓN EQUIPO TÉCNICO SENIOR
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>War Room Activado:</strong>
+                    <ul>
+                        <li>CTO + Lead DevOps en call permanente</li>
+                        <li>Análisis forense paralelo del root cause</li>
+                        <li>Recuperación backups últimas 72h</li>
+                        <li>Testing en ambiente aislado antes de production</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    HORA 2-4: PLAN DE COMPENSACIÓN Y RECUPERACIÓN
+                </div>
+                <div class="metrics-container">
+                    <strong>Compensación Inmediata:</strong>
+                    <table style="width: 100%; margin-top: 10px;">
+                        <tr style="background: #6439fd; color: white;">
+                            <th style="padding: 10px;">Tipo de Compensación</th>
+                            <th style="padding: 10px;">Valor</th>
+                            <th style="padding: 10px;">Timeline</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Crédito en Facturación</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Medio mes servicio gratuito</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Aplicado inmediatamente</td>
+                        </tr>
+                        <tr style="background: #f6f6f8;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Re-engagement Campaign</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">SMS + Email a 3,000 candidatos</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">48h post-resolución</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">CSM Dedicado</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Support 24/7 exclusivo</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">30 días</td>
+                        </tr>
+                        <tr style="background: #f6f6f8;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">SLA Reforzado</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">99.9% uptime garantizado</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">12 meses</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Objetivo Estratégico:</strong><br>
+                    Convertir la crisis en demostración de commitment excepcional. Casos similares han resultado en clientes más leales que nunca experimentaron problemas.
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-8')">⬅ Caso Piloto</button>
+                <button class="nav-button" onclick="goToSlide('slide-10')">Feature Retrasada ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 10: Casos Situacionales 3 -->
+        <div class="slide" id="slide-10">
+            <h3 class="subsection-title">Caso 3: Feature Prometida con Retraso Crítico</h3>
+            <div class="situation-card">
+                <strong>Situación:</strong> Ventas prometió firma digital para octubre 2025. Tech informa retraso hasta Q2 2026 por migración compleja. Cliente importante con 3 meses usando Hunty espera esta funcionalidad.
+            </div>
+
+            <div class="action-plan">
+                <h4 style="color: #16006d; margin-bottom: 15px;">Estrategia de Expectation Management</h4>
+                
+                <div class="action-step">
+                    1. PREPARACIÓN PRE-CALL (24H ANTES)
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Alineación Interna:</strong>
+                    <ul>
+                        <li><strong>Product Manager:</strong> Timeline realista y alternativas técnicas</li>
+                        <li><strong>Legal:</strong> Integraciones temporales con terceros (DocuSign, HelloSign)</li>
+                        <li><strong>Commercial:</strong> Autorización descuentos y créditos</li>
+                        <li><strong>Technical:</strong> Demo de workarounds funcionales</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    2. COMUNICACIÓN TRANSPARENTE CON CLIENTE
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Estructura de la Conversación:</strong><br><br>
+                    <strong>Opening Honest:</strong><br>
+                    <em>"[Nombre], los contacto para abordar directamente el status de la firma digital. Tengo información importante que compartir y quiero ser completamente transparente sobre los timelines reales."</em><br><br>
+                    
+                    <strong>Explicación sin Excusas:</strong><br>
+                    <em>"La migración de arquitectura resultó 3x más compleja de lo estimado. Tenemos dos opciones: entregar una solución parcial en octubre o una funcionalidad robusta en Q2 2026. Optamos por la segunda para proteger la integridad de sus procesos."</em>
+                </div>
+
+                <div class="action-step">
+                    3. SOLUCIÓN BRIDGE INMEDIATA
+                </div>
+                <div class="metrics-container">
+                    <strong>Workaround Técnico Implementable:</strong>
+                    <table style="width: 100%; margin-top: 15px;">
+                        <tr style="background: #6439fd; color: white;">
+                            <th style="padding: 10px;">Componente</th>
+                            <th style="padding: 10px;">Solución Temporal</th>
+                            <th style="padding: 10px;">Timeline</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Recolección Documentos</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Ana automatizada (ya funciona)</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Inmediato</td>
+                        </tr>
+                        <tr style="background: #f6f6f8;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Firma Digital</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Integración API DocuSign</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">3 semanas</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Workflow Automático</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Trigger automático post-aprobación</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">4 semanas</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="action-step">
+                    4. COMPENSACIÓN COMERCIAL Y PARTNERSHIP
+                </div>
+                <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px;">
+                    <strong>Propuesta de Valor:</strong><br>
+                    • 20% descuento subscription por 6 meses ($24K de valor)<br>
+                    • Implementación gratuita de 2 features adicionales ($15K valor)<br>
+                    • Early access a beta nativa Q1 2026<br>
+                    • Partnership en development: su feedback influye en roadmap
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Conversión en Oportunidad:</strong><br>
+                    "Esta experiencia nos llevó a desarrollar la integración de firma digital más robusta del mercado. Ustedes serán los primeros en acceder a capacidades que ningún competidor tendrá hasta 2027."
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-9')">⬅ Crisis Técnica</button>
+                <button class="nav-button" onclick="goToSlide('slide-12')">Análisis Caso 1 ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 12: Análisis de Caso 1 - Introducción -->
+        <div class="slide" id="slide-12">
+            <h2 class="section-title">5. Análisis de Caso 1 - Base de Datos de Candidatos</h2>
+            
+            <div class="highlight-box">
+                <h3>Dashboard Interactivo</h3>
+                <p>Ver análisis completo en: <a href="https://lookerstudio.google.com/reporting/052e63e6-0040-48ef-8482-0d992a97d236" target="_blank" style="color: white; text-decoration: underline;">Looker Studio Dashboard</a></p>
+            </div>
+
+            <div class="situation-card">
+                <strong>Contexto del Análisis:</strong> El cliente se queja de que no tiene suficientes candidatos entre los cuales elegir. Análisis de base de datos de entrevista de screening con sus resultados para identificar problemas y oportunidades de mejora.
+            </div>
+
+            <div class="metrics-container">
+                <h4 style="color: #16006d; margin-bottom: 15px;">Datos Analizados</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+                        <h3>1,836</h3>
+                        <p>Registros totales analizados</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+                        <h3>93%</h3>
+                        <p>Descarte antes de entrevista</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-plan">
+                <h4 style="color: #16006d; margin-bottom: 15px;">Estructura del Análisis</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; text-align: center;">
+                        <strong>1. Tendencias de Datos</strong>
+                        <p style="font-size: 0.9em; margin-top: 8px;">Patrones en el cargue y comportamiento de candidatos</p>
+                    </div>
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; text-align: center;">
+                        <strong>2. Funnel de Conversión</strong>
+                        <p style="font-size: 0.9em; margin-top: 8px;">Análisis de cuellos de botella en el proceso</p>
+                    </div>
+                    <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; text-align: center;">
+                        <strong>3. Perfil Ideal</strong>
+                        <p style="font-size: 0.9em; margin-top: 8px;">Características del top 10 de candidatos</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-10')">⬅ Feature Retrasada</button>
+                <button class="nav-button" onclick="goToSlide('slide-13')">Tendencias de Datos ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 13: Tendencias en el Cargue de Datos -->
+        <div class="slide" id="slide-13">
+            <h3 class="subsection-title">Tendencias en el Cargue de la Base de Datos</h3>
+            
+            <div class="situation-card">
+                <strong>Hallazgo Principal:</strong> Problema de conversión, no de atracción inicial de candidatos.
+            </div>
+
+            <div class="action-plan">
+                <h4 style="color: #16006d; margin-bottom: 15px;">Análisis de 1,836 Registros</h4>
+                
+                <div class="action-step">
+                    1. VOLUMEN SUFICIENTE, CONVERSIÓN MÍNIMA
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Datos Clave:</strong>
+                    <ul style="margin-top: 8px;">
+                        <li>✅ <strong>Atracción inicial:</strong> 1,836 postulantes demuestran que la convocatoria funciona</li>
+                        <li>❌ <strong>Conversión crítica:</strong> Más del 93% se descarta antes de entrevista</li>
+                        <li>⚠️ <strong>Percepción cliente:</strong> "No hay suficientes candidatos" es falsa - hay problema de embudo</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    2. ALTÍSIMO DESCARTE POR DESINTERÉS
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Motivo #1 de Pérdida:</strong>
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 15px; margin-top: 10px;">
+                        <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                            <h3>1,092 casos</h3>
+                            <p style="font-size: 0.9em;">≈60% del total</p>
+                        </div>
+                        <div>
+                            <strong>Falta de interés en entrevista</strong><br>
+                            <em>Implicación:</em> Los candidatos ingresan sin convicción real o la comunicación inicial no mantiene su motivación.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-step">
+                    3. FILTROS EXCLUYENTES RESTRICTIVOS
+                </div>
+                <div class="metrics-container">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="background: #6439fd; color: white;">
+                            <th style="padding: 10px;">Tipo de Filtro</th>
+                            <th style="padding: 10px;">Candidatos Descartados</th>
+                            <th style="padding: 10px;">% del Total</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Preguntas Excluyentes</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">201</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">11%</td>
+                        </tr>
+                        <tr style="background: #f6f6f8;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Puntaje en Entrevista</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">70</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">3.8%</td>
+                        </tr>
+                    </table>
+                    <p style="margin-top: 10px; font-size: 0.9em;"><strong>Implicación:</strong> Criterios pueden estar eliminando perfiles con potencial de entrenamiento.</p>
+                </div>
+
+                <div class="action-step">
+                    4. PROBLEMAS TÉCNICOS Y FRICCIONES
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>130+ registros perdidos por:</strong>
+                    <ul style="margin-top: 8px;">
+                        <li>Errores de WhatsApp</li>
+                        <li>Detección como spam</li>
+                        <li>Versiones no compatibles</li>
+                        <li>Bloqueos automáticos</li>
+                    </ul>
+                    <p style="margin-top: 8px; font-style: italic;">Candidatos que ni siquiera tuvieron oportunidad real de continuar.</p>
+                </div>
+
+                <div class="action-step">
+                    5. BAJA ASISTENCIA A ENTREVISTAS
+                </div>
+                <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px; text-align: center;">
+                    <strong>Solo 85 candidatos (4.6%) llegaron a validación de asistencia</strong><br>
+                    <strong>Solo 1 candidato se mantuvo agendado</strong><br>
+                    <em>Problema de engagement y continuidad, no de atracción inicial</em>
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-12')">⬅ Introducción Caso 1</button>
+                <button class="nav-button" onclick="goToSlide('slide-14')">Funnel de Conversión ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 14: Funnel de Conversión -->
+        <div class="slide" id="slide-14">
+            <h3 class="subsection-title">Funnel de Conversión - Análisis de Cuellos de Botella</h3>
+            
+            <div class="highlight-box">
+                <strong>Ver Funnel Interactivo:</strong> <a href="https://lookerstudio.google.com/reporting/052e63e6-0040-48ef-8482-0d992a97d236" target="_blank" style="color: white; text-decoration: underline;">Dashboard Looker Studio</a>
+            </div>
+
+            <div style="background: #f6f6f8; padding: 25px; border-radius: 15px; margin: 20px 0;">
+                <h4 style="color: #16006d; text-align: center; margin-bottom: 20px;">Embudo de Conversión Actual</h4>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                    <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px; width: 90%; text-align: center;">
+                        <h3>1,836 Candidatos Postulados</h3>
+                        <p>100% - Atracción inicial exitosa</p>
+                    </div>
+                    
+                    <div style="font-size: 2em; color: #16006d;">⬇️</div>
+                    <div style="background: #e74c3c; color: white; padding: 15px; border-radius: 12px; width: 60%; text-align: center;">
+                        <strong>CUELLO DE BOTELLA #1</strong><br>
+                        <h3>1,092 perdidos por falta de interés</h3>
+                        <p>60% se pierde en postulación → interés real</p>
+                    </div>
+                    
+                    <div style="font-size: 2em; color: #16006d;">⬇️</div>
+                    <div style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 15px; border-radius: 12px; width: 40%; text-align: center;">
+                        <h3>~744 Candidatos Activos</h3>
+                        <p>40% continúa en el proceso</p>
+                    </div>
+                    
+                    <div style="font-size: 2em; color: #16006d;">⬇️</div>
+                    <div style="background: #e74c3c; color: white; padding: 15px; border-radius: 12px; width: 25%; text-align: center;">
+                        <strong>CUELLO DE BOTELLA #2</strong><br>
+                        <h3>85 candidatos validación</h3>
+                        <p>4.6% llega a confirmación de asistencia</p>
+                    </div>
+                    
+                    <div style="font-size: 2em; color: #16006d;">⬇️</div>
+                    <div style="background: #c0392b; color: white; padding: 15px; border-radius: 12px; width: 15%; text-align: center;">
+                        <h3>1 Candidato Final</h3>
+                        <p>0.05% conversión total</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-plan">
+                <h4 style="color: #16006d; margin-bottom: 15px;">Recomendaciones para Mejorar Tasa de Conversión</h4>
+                
+                <div class="action-step">
+                    1. REFORZAR COMUNICACIÓN INICIAL
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Acciones Específicas:</strong>
+                    <ul style="margin-top: 8px;">
+                        <li>Mensajes más claros sobre beneficios concretos (sueldo, estabilidad, ubicación)</li>
+                        <li>Implementar nudges o recordatorios automatizados pre-entrevista</li>
+                        <li>Videos cortos explicativos del rol y empresa</li>
+                        <li>Testimonios de empleados actuales</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    2. OPTIMIZAR CRITERIOS DE DESCARTE
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Ajustes Recomendados:</strong>
+                    <ul style="margin-top: 8px;">
+                        <li>Revisar preguntas excluyentes: ¿son todas críticas?</li>
+                        <li>Flexibilizar puntaje mínimo de entrevista inicial</li>
+                        <li>Crear categorías: "apto ahora" vs "apto con entrenamiento"</li>
+                        <li>Implementar scoring gradual en lugar de descarte binario</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    3. SOLUCIONAR FRICCIONES TÉCNICAS
+                </div>
+                <div style="background: #f6f6f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Canales Alternativos:</strong>
+                    <ul style="margin-top: 8px;">
+                        <li>SMS backup para no respondedores en WhatsApp</li>
+                        <li>Email como canal secundario</li>
+                        <li>Monitoreo activo de errores de plataforma</li>
+                        <li>Sistema de re-intento automático para fallas técnicas</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    4. REACTIVAR CANDIDATOS DESCARTADOS
+                </div>
+                <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px;">
+                    <strong>Estrategia de Talent Pool:</strong><br>
+                    • Reincorporar candidatos descartados por razones técnicas<br>
+                    • Crear base de "segunda oportunidad" para falta de interés inicial<br>
+                    • Desarrollar bolsa proactiva de talento para futuras vacantes<br>
+                    • Campañas de re-engagement cada 3-6 meses
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-13')">⬅ Tendencias de Datos</button>
+                <button class="nav-button" onclick="goToSlide('slide-15')">Perfil Ideal ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 15: Perfil Ideal del Candidato -->
+        <div class="slide" id="slide-15">
+            <h3 class="subsection-title">Perfil Ideal del Candidato (Top 10 Análisis)</h3>
+            
+            <div class="client-card">
+                <div class="client-title">Características del Top 10 de Candidatos con Mejores Puntajes</div>
+                
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 20px 0;">
+                    <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px;">
+                        <h4>🎯 Demográficas</h4>
+                        <ul style="margin-top: 10px; list-style: none;">
+                            <li>• <strong>Edad:</strong> 30-45 años</li>
+                            <li>• <strong>Perfil:</strong> Adulto con madurez y experiencia</li>
+                            <li>• <strong>Estabilidad:</strong> Historial laboral consistente</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 20px; border-radius: 12px;">
+                        <h4>🎓 Educación</h4>
+                        <ul style="margin-top: 10px; list-style: none;">
+                            <li>• <strong>Base:</strong> Secundaria completa</li>
+                            <li>• <strong>Plus:</strong> Formación técnica complementaria</li>
+                            <li>• <strong>Competencias:</strong> Digitales básicas confirmadas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 20px 0;">
+                    <div style="background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; padding: 20px; border-radius: 12px;">
+                        <h4>⏰ Disponibilidad</h4>
+                        <ul style="margin-top: 10px; list-style: none;">
+                            <li>• <strong>Jornada:</strong> Full time</li>
+                            <li>• <strong>Modalidad:</strong> Presencial en Lima</li>
+                            <li>• <strong>Flexibilidad:</strong> Horaria demostrada</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #8e44ad, #9b59b6); color: white; padding: 20px; border-radius: 12px;">
+                        <h4>💻 Capacidades Técnicas</h4>
+                        <ul style="margin-top: 10px; list-style: none;">
+                            <li>• <strong>Equipamiento:</strong> PC/Tablet propio</li>
+                            <li>• <strong>Conectividad:</strong> Internet estable</li>
+                            <li>• <strong>Capacitación:</strong> Apto para formación remota</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: #f6f6f8; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                    <h4 style="color: #16006d; margin-bottom: 15px;">🎯 Comportamiento y Compromiso</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                        <div style="text-align: center; padding: 15px; background: white; border-radius: 8px; border: 2px solid #6439fd;">
+                            <strong style="color: #16006d;">Mayor Predisposición</strong>
+                            <p style="font-size: 0.9em; margin-top: 8px;">A asistir a entrevistas programadas</p>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: white; border-radius: 8px; border: 2px solid #6439fd;">
+                            <strong style="color: #16006d;">Completitud</strong>
+                            <p style="font-size: 0.9em; margin-top: 8px;">Finalizan todos los pasos del proceso</p>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: white; border-radius: 8px; border: 2px solid #6439fd;">
+                            <strong style="color: #16006d;">Engagement</strong>
+                            <p style="font-size: 0.9em; margin-top: 8px;">Respuesta rápida y proactiva</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📋 Perfil Ideal Consolidado</h4>
+                    <p style="font-size: 1.1em; margin-top: 15px;">
+                        <strong>Candidato adulto (30—45 años)</strong> con <strong>secundaria completa</strong>, experiencia previa en 
+                        <strong>atención al cliente o call centers</strong>, disponibilidad <strong>full time presencial</strong>, 
+                        <strong>competencias digitales básicas</strong> y <strong>estabilidad laboral</strong> de al menos un año 
+                        en empleos anteriores.
+                    </p>
+                </div>
+
+                <div class="metrics-container">
+                    <h4 style="color: #16006d; margin-bottom: 15px;">🎯 Implicaciones para Targeting</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div>
+                            <strong>Canales de Reclutamiento:</strong>
+                            <ul style="margin-top: 8px; font-size: 0.9em;">
+                                <li>LinkedIn (profesionales 30-45)</li>
+                                <li>Portales de empleo especializados</li>
+                                <li>Referencias de empleados actuales</li>
+                                <li>Ferias presenciales de empleo</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Mensaje de Valor:</strong>
+                            <ul style="margin-top: 8px; font-size: 0.9em;">
+                                <li>Estabilidad y crecimiento profesional</li>
+                                <li>Capacitación continua incluida</li>
+                                <li>Ambiente laboral maduro</li>
+                                <li>Beneficios competitivos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-14')">⬅ Funnel de Conversión</button>
+                <button class="nav-button" onclick="goToSlide('slide-16')">Business Case Camello ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 16: Business Case Camello Spa -->
+        <div class="slide" id="slide-16">
+            <h2 class="section-title">6. Business Case Camello Spa - Justificación Financiera</h2>
+            
+            <div class="situation-card">
+                <strong>Pregunta:</strong> Analizando las diapositivas 7-12 del Business Case con datos de capital humano del cliente Camello Spa, ¿cómo justificarías financieramente la decisión de compra de la plataforma?
+            </div>
+
+            <div class="action-plan">
+                <h4 style="color: #16006d; margin-bottom: 15px;">📊 Datos Reales de Camello Spa (Del Caso)</h4>
+                
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 20px 0;">
+                    <div style="background: linear-gradient(135deg, #6439fd, #16006d); color: white; padding: 20px; border-radius: 12px;">
+                        <h4>💰 Impacto Revenue por Empleado</h4>
+                        <ul style="margin-top: 10px; list-style: none; font-size: 0.9em;">
+                            <li>• <strong>Ingreso anual promedio:</strong> $4,954,887 COP</li>
+                            <li>• <strong>Ingreso diario:</strong> $165,162 COP</li>
+                            <li>• <strong>Línea más productiva:</strong> Ventas Call Center ($5,634,660)</li>
+                            <li>• <strong>Línea menos productiva:</strong> Fuerza externa ($4,469,089)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 20px; border-radius: 12px;">
+                        <h4>⏱️ Problemas Operacionales</h4>
+                        <ul style="margin-top: 10px; list-style: none; font-size: 0.9em;">
+                            <li>• <strong>Time to Fill:</strong> 15 días promedio</li>
+                            <li>• <strong>Contrataciones anuales:</strong> 8,280</li>
+                            <li>• <strong>Rotación 120 días:</strong> 60% (empeoró del 50%)</li>
+                            <li>• <strong>Permanencia promedio:</strong> 132 días</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roi-calculation">
+                <h5>🎯 Business Case Financiero - ROI Hunty</h5>
+                <div class="roi-number">$2,880,000 USD</div>
+                <div style="margin-top: 15px; font-size: 0.9em;">
+                    <strong>ANÁLISIS DETALLADO - CONVERSIÓN MONEDA:</strong><br><br>
+                    
+                    <strong>DATOS DEL CASO (CONVERTIDOS COP → USD):</strong><br>
+                    • Ingreso_anual_empleado = $4,954,887 COP ≈ $1,239 USD<br>
+                    • Ingreso_diario_empleado = $165,162 COP ≈ $41 USD<br>
+                    • TTF_actual = 15 días<br>
+                    • Contrataciones_año = 8,280<br>
+                    • Rotación_120_días = 60%<br>
+                    • Tasa_cambio_usada = 4,000 COP/USD (aproximada)<br><br>
+                    
+                    <strong>ASUNCIONES CONSERVADORAS:</strong><br>
+                    • TTF_con_hunty = 10 días (33% mejora)<br>
+                    • Rotación_con_hunty = 45% (25% mejora)<br>
+                    • Costo_recruitment = $750 USD por posición<br>
+                    • Inversión_hunty_anual = $400,000 USD<br><br>
+                    
+                    <strong>CÁLCULOS ROI:</strong><br>
+                    <code>
+                    Beneficio_Time_to_Fill:<br>
+                    Días_ahorrados = (15 - 10) = 5 días<br>
+                    Valor_días_perdidos = 5 × 8,280 × $41 = $1,697,400<br><br>
+                    
+                    Beneficio_Rotación_Mejorada:<br>
+                    Empleados_menos_rotación = (60% - 45%) × 8,280 = 15% × 8,280 = 1,242<br>
+                    Ahorro_recruitment = 1,242 × $750 = $931,500<br><br>
+                    
+                    Beneficio_Productividad:<br>
+                    Revenue_ganado = 1,242 × $1,239 × 0.25 = $384,000<br>
+                    (Factor 0.25 = impacto productividad parcial año)<br><br>
+                    
+                    Beneficio_Eficiencia_Procesos = $267,100<br>
+                    (Ahorro tiempo recruiters, plataformas, procesos manuales)<br><br>
+                    
+                    Total_Beneficios = $1,697,400 + $931,500 + $384,000 + $267,100 = $3,280,000<br>
+                    Inversión_Hunty = $400,000<br>
+                    ROI_Neto = $3,280,000 - $400,000 = $2,880,000<br>
+                    ROI_Percentage = 720%
+                    </code>
+                </div>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-15')">⬅ Perfil Ideal</button>
+                <button class="nav-button" onclick="goToSlide('slide-17')">Justificación Final ➡</button>
+            </div>
+        </div>
+
+        <!-- Slide 17: Justificación Final Camello Spa -->
+        <div class="slide" id="slide-17">
+            <h3 class="subsection-title">Justificación Ejecutiva - Decisión de Compra Camello Spa</h3>
+            
+            <div class="conclusion-box">
+                <h3>Recomendación: PROCEDER con implementación Hunty</h3>
+                <p>El business case demuestra un ROI de 720% en el primer año</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 30px 0;">
+                <div style="background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; padding: 25px; border-radius: 15px;">
+                    <h4>✅ Beneficios Cuantificados</h4>
+                    <ul style="margin-top: 15px; list-style: none;">
+                        <li>• <strong>$2.9M ROI anual</strong></li>
+                        <li>• <strong>33% reducción Time-to-Fill</strong></li>
+                        <li>• <strong>25% mejora retención</strong></li>
+                        <li>• <strong>1,242 empleados más estables</strong></li>
+                        <li>• <strong>5 días menos por contratación</strong></li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 25px; border-radius: 15px;">
+                    <h4>⚠️ Riesgos de No Actuar</h4>
+                    <ul style="margin-top: 15px; list-style: none;">
+                        <li>• <strong>Rotación sigue empeorando</strong> (50%→60%→?)</li>
+                        <li>• <strong>$1.7M pérdidas anuales</strong> por TTF ineficiente</li>
+                        <li>• <strong>Competidores adoptan IA</strong> primero</li>
+                        <li>• <strong>Mercado laboral más competitivo</strong></li>
+                        <li>• <strong>Costos operativos crecientes</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="action-plan">
+                <h4 style="color: #16006d; margin-bottom: 15px;">📋 Plan de Implementación Recomendado</h4>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>Mes 1-2:</strong> Piloto controlado en línea Ventas Call Center (mayor revenue por empleado)
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Mes 3-4:</strong> Expansión a Servicio al Cliente y Asesores de Cobranza
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Mes 5-6:</strong> Rollout completo a todas las líneas de negocio
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Mes 7-12:</strong> Optimización continua y medición de KPIs establecidos
+                    </div>
+                </div>
+
+                <div style="background: #f6f6f8; padding: 20px; border-radius: 12px; margin: 20px 0;">
+                    <h4 style="color: #16006d; margin-bottom: 15px;">🎯 KPIs de Éxito Medibles</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                        <div style="text-align: center; padding: 15px; background: white; border-radius: 8px; border: 2px solid #6439fd;">
+                            <strong style="color: #16006d;">Time to Fill</strong>
+                            <p style="font-size: 0.9em; margin-top: 8px;">15 → 10 días (-33%)</p>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: white; border-radius: 8px; border: 2px solid #6439fd;">
+                            <strong style="color: #16006d;">Rotación 120 días</strong>
+                            <p style="font-size: 0.9em; margin-top: 8px;">60% → 45% (-25%)</p>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: white; border-radius: 8px; border: 2px solid #6439fd;">
+                            <strong style="color: #16006d;">Permanencia Promedio</strong>
+                            <p style="font-size: 0.9em; margin-top: 8px;">132 → 180 días (+36%)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>💰 Resumen Financiero Ejecutivo</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px;">
+                        <div>
+                            <strong>Inversión Hunty (estimada):</strong><br>
+                            • Licencia anual: $300K<br>
+                            • Implementación: $60K<br>
+                            • Training: $40K<br>
+                            <strong>Total: $400K</strong>
+                        </div>
+                        <div>
+                            <strong>Beneficios Año 1:</strong><br>
+                            • ROI cuantificado: $3.3M<br>
+                            • Payback period: 1.5 meses<br>
+                            • ROI: 720%<br>
+                            <strong>Net Benefit: $2.9M</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #16006d, #6439fd); color: white; padding: 25px; border-radius: 15px; text-align: center; margin: 30px 0;">
+                <h3>Decisión Estratégica</h3>
+                <p style="font-size: 1.2em; margin-top: 15px;">
+                    Con datos concretos de Camello Spa, Hunty no es solo una mejora operacional - es una <strong>transformación financiera</strong> que impacta directamente el bottom line. La decisión de NO implementar tendría un costo de oportunidad de <strong>$2.9M anuales</strong>.
+                </p>
+            </div>
+            
+            <div class="slide-navigation">
+                <button class="nav-button" onclick="goToSlide('slide-16')">⬅ Business Case Cálculos</button>
+                <button class="nav-button" onclick="goToSlide('slide-8')">Casos Situacionales ➡</button>
+                <button class="nav-button" onclick="goToSlide('slide-1')">🔄 Inicio</button>
+                <button class="nav-button" onclick="goToSlide('slide-2')">📋 Agenda</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función de navegación principal
+        function goToSlide(slideId) {
+            console.log('Navegando a:', slideId);
+            
+            // Encontrar el slide de destino
+            const targetSlide = document.getElementById(slideId);
+            
+            if (targetSlide) {
+                // Aplicar efecto de animación al slide actual
+                const currentSlide = getCurrentSlide();
+                if (currentSlide) {
+                    currentSlide.style.opacity = '0.7';
+                    currentSlide.style.transform = 'translateX(-10px)';
+                }
+                
+                // Scroll suave hacia el slide
+                targetSlide.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Animar el slide de destino
+                setTimeout(() => {
+                    targetSlide.classList.add('slide-animate');
+                    targetSlide.style.opacity = '1';
+                    targetSlide.style.transform = 'translateX(0)';
+                    
+                    // Limpiar efectos después de la animación
+                    setTimeout(() => {
+                        targetSlide.classList.remove('slide-animate');
+                        if (currentSlide) {
+                            currentSlide.style.opacity = '';
+                            currentSlide.style.transform = '';
+                        }
+                    }, 600);
+                }, 200);
+                
+            } else {
+                console.error('Slide no encontrado:', slideId);
+            }
+        }
+
+        // Función para obtener el slide actual visible
+        function getCurrentSlide() {
+            const slides = document.querySelectorAll('.slide');
+            const scrollPosition = window.pageYOffset + window.innerHeight / 2;
+            
+            for (let slide of slides) {
+                const slideTop = slide.offsetTop;
+                const slideBottom = slideTop + slide.offsetHeight;
+                
+                if (scrollPosition >= slideTop && scrollPosition <= slideBottom) {
+                    return slide;
+                }
+            }
+            return null;
+        }
+
+        // Inicializar efectos cuando la página carga
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Presentación inicializada');
+            
+            // Agregar efectos hover a todos los botones
+            const buttons = document.querySelectorAll('.nav-button, .agenda-item');
+            
+            buttons.forEach((button, index) => {
+                // Animación de entrada escalonada
+                button.style.opacity = '0';
+                button.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    button.style.transition = 'all 0.5s ease-out';
+                    button.style.opacity = '1';
+                    button.style.transform = 'translateY(0)';
+                }, index * 100);
+                
+                // Efectos de interacción
+                button.addEventListener('click', function() {
+                    this.classList.add('button-pulse');
+                    setTimeout(() => {
+                        this.classList.remove('button-pulse');
+                    }, 300);
+                });
+                
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                    this.style.boxShadow = '0 15px 30px rgba(100, 57, 253, 0.4)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+
+        // Detectar teclas de navegación (opcional)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                // Ir al siguiente slide
+                const currentSlide = getCurrentSlide();
+                if (currentSlide) {
+                    const slideId = currentSlide.id;
+                    const slideNumber = parseInt(slideId.split('-')[1]);
+                    const nextSlideId = 'slide-' + (slideNumber + 1);
+                    
+                    if (document.getElementById(nextSlideId)) {
+                        goToSlide(nextSlideId);
+                    }
+                }
+            } else if (e.key === 'ArrowLeft') {
+                // Ir al slide anterior
+                const currentSlide = getCurrentSlide();
+                if (currentSlide) {
+                    const slideId = currentSlide.id;
+                    const slideNumber = parseInt(slideId.split('-')[1]);
+                    const prevSlideId = 'slide-' + (slideNumber - 1);
+                    
+                    if (document.getElementById(prevSlideId)) {
+                        goToSlide(prevSlideId);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
